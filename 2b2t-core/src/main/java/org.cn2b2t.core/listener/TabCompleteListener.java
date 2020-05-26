@@ -8,66 +8,69 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.reflect.FieldAccessException;
-import org.cn2b2t.core.Main;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.cn2b2t.core.Main;
 
 public final class TabCompleteListener implements Listener {
 
-	private final ProtocolManager pm;
+    private final ProtocolManager pm;
 
-	public TabCompleteListener() {
-		this.pm = ProtocolLibrary.getProtocolManager();
-		setupPackets();
-	}
+    public TabCompleteListener() {
+        this.pm = ProtocolLibrary.getProtocolManager();
+        setupPackets();
+    }
 
-	private void setupPackets() {
-		this.pm.addPacketListener(new PacketAdapter(Main.getInstance(), ListenerPriority.NORMAL, PacketType.Play.Client.TAB_COMPLETE) {
-			@Override
-			public void onPacketReceiving(PacketEvent event) {
-				if (!event.getPlayer().isOp()) {
-					if (event.getPacketType() == PacketType.Play.Client.TAB_COMPLETE) {
-						try {
+    private void setupPackets() {
+        this.pm.addPacketListener(new PacketAdapter(Main.getInstance(), ListenerPriority.NORMAL, PacketType.Play.Client.TAB_COMPLETE) {
+            @Override
+            public void onPacketReceiving(PacketEvent event) {
+                if (!event.getPlayer().isOp()) {
+                    if (event.getPacketType() == PacketType.Play.Client.TAB_COMPLETE) {
+                        try {
 
-							PacketContainer packet = event.getPacket();
+                            PacketContainer packet = event.getPacket();
 
-							String message = packet.getSpecificModifier(String.class).read(0).toLowerCase();
-							if (message.equalsIgnoreCase("/")
-									|| shouldCancel(message, "//")
-									|| shouldCancel(message, "/cmi")
-									|| shouldCancel(message, "/mcpay")
-									|| shouldCancel(message, "/help")
-									|| shouldCancel(message, "/bukkit:")
-									|| shouldCancel(message, "/minecraft:")) {
-								event.setCancelled(true);
-							}
-						} catch (FieldAccessException ignored) {
-						}
-					}
-				}
-			}
-		});
-	}
+                            String message = packet.getSpecificModifier(String.class).read(0).toLowerCase();
+                            if (message.equalsIgnoreCase("/")
+                                    || shouldCancel(message, "//")
+                                    || shouldCancel(message, "/cmi")
+                                    || shouldCancel(message, "/mcpay")
+                                    || shouldCancel(message, "/version")
+                                    || shouldCancel(message, "/help")
+                                    || shouldCancel(message, "/bukkit:")
+                                    || shouldCancel(message, "/minecraft:")) {
+                                event.setCancelled(true);
+                            }
+                        } catch (FieldAccessException ignored) {
+                        }
+                    }
+                }
+            }
+        });
+    }
 
 
-	@EventHandler
-	public void onAtTab(PlayerCommandPreprocessEvent e) {
-		if (!e.getPlayer().isOp()) {
-			String message = e.getMessage();
-			if (message.equalsIgnoreCase("/")
-					|| shouldCancel(message, "//")
-					|| message.startsWith("/minecraft:")
-					|| message.startsWith("/bukkit:")
-					|| message.startsWith("/help")) {
-				e.setCancelled(true);
-			}
-		}
-	}
+    @EventHandler
+    public void onAtTab(PlayerCommandPreprocessEvent e) {
+        if (!e.getPlayer().isOp()) {
+            String message = e.getMessage();
+            if (message.equalsIgnoreCase("/")
+                    || shouldCancel(message, "//")
+                    || message.startsWith("/minecraft:")
+                    || message.startsWith("/version")
+                    || message.startsWith("/ver")
+                    || message.startsWith("/bukkit:")
+                    || message.startsWith("/help")) {
+                e.setCancelled(true);
+            }
+        }
+    }
 
-	public static boolean shouldCancel(String message, String command) {
-		return message.startsWith(command) || command.startsWith(message);
-	}
+    public static boolean shouldCancel(String message, String command) {
+        return message.startsWith(command) || command.startsWith(message);
+    }
 
 //	@EventHandler
 //	public void onAtTab(PlayerChatTabCompleteEvent e) {
