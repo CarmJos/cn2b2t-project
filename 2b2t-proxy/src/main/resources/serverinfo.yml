@@ -1,0 +1,139 @@
+#COMMON FUCTIONS V1.0
+#墨瓷
+
+##MOTD设置
+
+FixingMode:
+  enable: false
+  Motd: "&7深切哀悼在抗击新冠肺炎斗争中的牺牲烈士和逝世同胞。"
+  Info: "§c§l服务暂停至2020/4/5 00:00"
+  players:
+    - CUMR
+    - LSeng
+    - Raviloi
+    - Red_Carl
+
+IP:
+  online:
+    - online.service.mocimc.cn
+  offline:
+    - offline.service.mocimc.cn
+
+Default:
+  Motd:
+    line1: "&f§lKa&7&lr&c.RED &f中国专业MC游戏社区 &8| &f1.7.10&8-&f1.14&7通用 "
+    # line1: "&f&l墨&8&l瓷&8(&c中国&8) &3专业游戏社区 &8| &f服务暂停至2020/4/5 00:00"
+    line2: "&8[&cR&8] &7经典，回归；青春，永在。 &8| &7全原创自主开发 &f&l竞技场 &7开放测试！"
+  PlayerInfo:
+    - "&f§lKa&7&lr&c.RED &8(&c中国主服&8)"
+    - "&f"
+    - "&7建议您访问我们的网站 &f&lhttps://www.kar.red/ &7，"
+    - "&7或加入我们的讨论群 &c106660674 &7。"
+    - "&8"
+  version: "§f支持 §c1.7.2-1.14.4"
+  useFakePlayer: false
+  maxPlayer: 512
+  icon: "/icons/kar.png"
+Settings:
+  RICHDRAGON:
+    IP:
+      - service.richi.pro
+      - richi.pro
+    Motd:
+      line1: "&6&lRichi&7.pro &f中国专业PVP社区服务器"
+      line2: "&7"
+    PlayerInfo:
+      - "&f"
+      - "&7制作中。"
+      - "&8"
+    version: "§f支持 §31.7.2-1.14.4"
+    useFakePlayer: false
+    maxPlayer: 999
+    icon: "/icons/richi.png"
+    target: "DR.ARENAS.PRACTICE"
+    playersFrom:
+      - DR.ARENAS.PRACTICE
+  2b2t:
+    IP:
+      - service.cn2b2t.org
+      - cn2b2t.org
+    Motd:
+      line1: "&7&l2B &c&lCN&7&l2B2T.ORG &f支持 1.12.2 - 最新正式版"
+      line2: "&7&l2T &6中国全开放式无规则无管理仿2B2T服务器"
+    PlayerInfo:
+      - "&f"
+      - "&7建议您访问我们的网站 &chttps://cn2b2t.org/ &7，"
+      - "&8"
+    version: "§f支持 §21.7.2-最新版本"
+    useFakePlayer: false
+    maxPlayer: 64
+    icon: "/icons/2b2t.png"
+    target: "2b2t"
+    directTeleport: false
+    onlyOnlineMode: false
+  PRIVATE_AXI:
+    IP:
+      - axi.service.privatemc.cn
+      - axi.privatemc.cn
+    Motd:
+      line1: "&f&l阿西&f的私人粉丝服务器 &8| &7请使用&f1.14.4&7登入"
+      line2: "&7本服务器由 &f&l墨&b&l瓷 &7免费支持、维护。"
+    PlayerInfo:
+      - "&f"
+      - "&7本服务器由 &f&l墨&b&l瓷 &7免费支持、维护。"
+      - "&8"
+    version: "§f支持 §21.14.4"
+    useFakePlayer: false
+    maxPlayer: 32
+    icon: "/icons/axi_private.png"
+    target: "PRIVATE_AXI"
+    directTeleport: false
+    onlyOnlineMode: false
+  PRIVATE_HAN:
+    IP:
+      - han.service.privatemc.cn
+      - han.privatemc.cn
+    Motd:
+      line1: "&f皇冠瑜伽会所 &8(1.7.10模组&8) "
+      line2: "&7需要整合包请加群 &f582496580"
+    PlayerInfo:
+      - "&f"
+      - "&7本服务器由 &f&l墨&b&l瓷 &7免费支持、维护。"
+      - "&7这里是 &f皇冠瑜伽会所 &7,"
+      - "&7一起van♂游♂戏♂ 吧！"
+      - "&7所含模组 &f拔刀剑&8、&f工业,"
+      - "&7需要整合包请加群 &f582496580"
+      - "&8"
+    version: "§f需要 §f1.7.10Forge"
+    useFakePlayer: false
+    maxPlayer: 64
+    icon: "/icons/yilong_private.png"
+    target: "PRIVATE.YILONG"
+    directTeleport: false
+    onlyOnlineMode: false
+  SEASURVIVAL:
+    IP:
+      - sea.service.privatemc.cn
+      - sea.privatemc.cn
+    Motd:
+      line1: "         &3海 &b◐ &3暮 &b◑ &3礁 &71.8.9 大型海岛生存"
+      line2: "               &8“&f伴余走海礁，同生观暮桥。&8”"
+    PlayerInfo:
+      - "&f"
+      - "&7本服务器由 &f&l墨&b&l瓷 &7免费支持、维护。"
+      - ""
+      - "&3海 &b◐ &3暮 &b◑ &3礁 &71.8.9 大型海岛生存"
+      - "&8“&f伴余走海礁，同生观暮桥。&8”"
+      - ""
+      - "&7建议您访问我们的网站 &bhttps://wiki.mocimc.cn/ &7，"
+      - "&7或加入我们的讨论群 &b731254012 &7。"
+      - "&8"
+    version: "§f需要 §f1.8.8"
+    useFakePlayer: false
+    maxPlayer: 256
+    icon: "/icons/sea.png"
+    target: "MOCI.SURVIVAL.SEA"
+    directTeleport: false
+    playersFrom:
+      - MOCI.SURVIVAL.SEA
+    onlyOnlineMode: false

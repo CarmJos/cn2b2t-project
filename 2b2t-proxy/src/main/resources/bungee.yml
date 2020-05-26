@@ -1,0 +1,4 @@
+name: 2b2t-proxy
+main: org.cn2b2t.proxy.Main
+version: 1.0
+author: Moci
