@@ -1,0 +1,14 @@
+main: org.cn2b2t.core.Main
+name: 2b2t-core
+version: 1.0-SNAPSHOT
+softdepend:
+  - Vault
+  - PlayerPoints
+  - ProtocolLib
+authors:
+  - Moci
+  - KarGames
+  - cn2b2t
+commands:
+  kar:
+    description: Developer Team.

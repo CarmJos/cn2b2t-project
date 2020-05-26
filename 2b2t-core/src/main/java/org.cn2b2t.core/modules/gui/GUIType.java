@@ -1,0 +1,31 @@
+package org.cn2b2t.core.modules.gui;
+
+/**
+ *
+ * @author LSeng
+ */
+public enum GUIType {
+
+	ONEBYNINE,
+	TWOBYNINE,
+	THREEBYNINE,
+	FOURBYNINE,
+	FIVEBYNINE,
+	SIXBYNINE,
+	DISPENSER,
+	DROPPER,
+	FURNACE,
+	WORKBENCH,
+	CRAFTING,
+	ENCHANTING,
+	BREWING,
+	PLAYER,
+	CREATIVE,
+	MERCHANT,
+	ENDER_CHEST,
+	BEACON,
+	HOPPER,
+	UNKNOWN,
+	CANCEL;
+
+}

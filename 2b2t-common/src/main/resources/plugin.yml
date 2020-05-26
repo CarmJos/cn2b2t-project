@@ -1,0 +1,19 @@
+name: 2b2t-common
+main: org.cn2b2t.common.Main
+version: 1.0.0 - SNAPSHOT
+authors:
+  - Moci
+  - cn2b2t
+softdepend:
+  - VariableBridge
+depend:
+  - McPay
+commands:
+  suicide:
+  donate:
+  ignore:
+  settings:
+  toggle:
+  help:
+  delay:
+  speak:
