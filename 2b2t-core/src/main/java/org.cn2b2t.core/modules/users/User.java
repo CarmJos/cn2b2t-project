@@ -1,26 +1,30 @@
 package org.cn2b2t.core.modules.users;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.cn2b2t.core.Main;
 import org.cn2b2t.core.events.UserLoadedEvent;
+import org.cn2b2t.core.managers.utils.DataManager;
 import org.cn2b2t.core.managers.utils.UserManager;
 import org.cn2b2t.core.managers.utils.scoreboard.CeramicScoreboard;
 import org.cn2b2t.core.managers.utils.scoreboard.ScoreBoardRender;
 import org.cn2b2t.core.modules.gui.GUI;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.cn2b2t.core.utils.UUIDUtils;
 import org.spigotmc.AsyncCatcher;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.ResultSet;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class User {
 
     private final Player player;
+
+    private int inkID;
+    private UUID mojangUUID;
+    private boolean onlineMode;
 
     private Map<String, Object> handler = new HashMap<>();
 
@@ -50,6 +54,34 @@ public class User {
                 });
 
 
+                try {
+                    ResultSet accountResult = DataManager.getConnection().SQLquery("nl2_users",
+                            "uuid", player.getUniqueId().toString().replace("-", ""));
+                    if (accountResult != null) {
+                        if (accountResult.next()) {
+                            User.this.inkID = accountResult.getInt("id");
+                            String muuid = accountResult.getString("mojanguuid");
+                            if (muuid != null && !muuid.isEmpty() && !muuid.equalsIgnoreCase("null")) {
+                                User.this.mojangUUID = UUIDUtils.toUUID(muuid);
+                            }
+                            User.this.onlineMode = mojangUUID != null;
+                        } else {
+                            accountResult.close();
+                            throw new NullPointerException("Cannot find user profile. name=" + player.getName() + " uuid=" + player.getUniqueId());
+                        }
+                        accountResult.close();
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            getPlayer().kickPlayer("关键信息加载失败,请联系管理员\nKey information loading failed. Please turn to administrator.");
+                        }
+                    }.runTask(Main.getInstance());
+                }
+
+
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -71,6 +103,17 @@ public class User {
     }
 
 
+    public boolean isFullLoaded() {
+        return fullLoaded;
+    }
+
+    public boolean isOnlineMode() {
+        return onlineMode;
+    }
+
+    public UUID getMojangUUID() {
+        return mojangUUID;
+    }
 
     public List<CeramicScoreboard> getScoreboards() {
         return this.scoreboards;
@@ -117,6 +160,10 @@ public class User {
         } else {
             throw new NullPointerException("Handler " + s + " in User " + getPlayer().getName() + " wasn't found.");
         }
+    }
+
+    public int getInkID() {
+        return inkID;
     }
 
     public <T> T getHandler(String s, Class T) {

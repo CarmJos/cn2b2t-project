@@ -13,6 +13,8 @@
         <module>2b2t-common</module>
         <module>2b2t-core</module>
         <module>2b2t-faction</module>
+        <module>2b2t-proxy</module>
+        <module>ImperialGuards</module>
     </modules>
 
     <properties>
