@@ -86,12 +86,6 @@ public class User {
                     @Override
                     public void run() {
                         fullLoaded = true;
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                sbRender = new ScoreBoardRender(player);
-                            }
-                        }.runTaskLater(Main.getInstance(), 1L);
                         Bukkit.getPluginManager().callEvent(new UserLoadedEvent(User.this));
                     }
                 }.runTask(Main.getInstance());
@@ -249,6 +243,9 @@ public class User {
     }
 
     public void addScoreboard(CeramicScoreboard sb) {
+        if (sbRender == null) {
+            sbRender = new ScoreBoardRender(player);
+        }
         this.scoreboards.add(sb);
     }
 
