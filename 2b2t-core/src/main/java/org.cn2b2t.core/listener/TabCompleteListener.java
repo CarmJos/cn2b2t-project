@@ -61,8 +61,7 @@ public final class TabCompleteListener implements Listener {
                     || message.startsWith("/minecraft:")
                     || message.startsWith("/version")
                     || message.startsWith("/ver")
-                    || message.startsWith("/bukkit:")
-                    || message.startsWith("/help")) {
+                    || message.startsWith("/bukkit:")) {
                 e.setCancelled(true);
             }
         }
