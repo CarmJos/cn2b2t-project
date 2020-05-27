@@ -3,6 +3,7 @@ package org.cn2b2t.common.listeners;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -48,10 +49,20 @@ public class RespawnListener implements Listener {
     public Location randomLocation(World w) {
         Random r = new Random();
 
-        int x = -3000 + r.nextInt(6001);
-        int z = -3000 + r.nextInt(6001);
-        int y = w.getHighestBlockYAt(x, z);
-        return new Location(w, x, y, z);
+        while (true) {
+            int x = -30000 + r.nextInt(60001);
+            int z = -30000 + r.nextInt(60001);
+            int y = w.getHighestBlockYAt(x, z);
+            Location loc = new Location(w, x, y, z);
+            Biome locBiome = w.getBiome(loc.getChunk().getX(), loc.getChunk().getZ());
+            if (locBiome != Biome.OCEAN
+                    && locBiome != Biome.DEEP_OCEAN
+                    && locBiome != Biome.RIVER
+                    && locBiome != Biome.DESERT
+                    && locBiome != Biome.DESERT_HILLS) {
+                return loc;
+            }
+        }
     }
 
 }
