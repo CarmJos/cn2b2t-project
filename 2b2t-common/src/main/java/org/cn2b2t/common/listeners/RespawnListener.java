@@ -27,6 +27,7 @@ public class RespawnListener implements Listener {
         } else {
             p.sendMessage("§7由于您之前的床已被破坏或遮挡，无法将您传送到您的床边。");
             p.teleport(randomLocation(Bukkit.getWorld("world")));
+
         }
 
     }
@@ -39,7 +40,7 @@ public class RespawnListener implements Listener {
                 p.teleport(ProfileData.getProfileData(p).bedLocation);
             } else {
                 p.sendMessage("§7由于您之前的床已被破坏或遮挡，无法将您传送到您的床边。");
-                p.teleport(Bukkit.getWorld("world").getSpawnLocation());
+                p.teleport(randomLocation(Bukkit.getWorld("world")));
             }
 
         }
@@ -51,7 +52,7 @@ public class RespawnListener implements Listener {
         int x = -3000 + r.nextInt(6001);
         int z = -3000 + r.nextInt(6001);
         int y = w.getHighestBlockYAt(x, z);
-
+        System.out.println("new random location is " + x + " " + y + " " + z);
         return new Location(w, x, y, z);
     }
 
