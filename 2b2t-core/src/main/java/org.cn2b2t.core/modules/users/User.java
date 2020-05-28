@@ -46,7 +46,7 @@ public class User {
 
     public User(Player player) {
         this.player = player;
-        loadData();
+
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -93,6 +93,7 @@ public class User {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
+                        loadData();
                         fullLoaded = true;
                         Bukkit.getPluginManager().callEvent(new UserLoadedEvent(User.this));
                     }

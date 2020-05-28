@@ -14,14 +14,16 @@ import org.cn2b2t.common.Main;
 import org.cn2b2t.common.functions.ProfileData;
 import org.cn2b2t.common.managers.ScoreboardManager;
 import org.cn2b2t.common.runnables.RestartRunnable;
-import org.cn2b2t.core.events.UserLoadedEvent;
+import org.cn2b2t.core.events.UserHandlerLoadedEvent;
 
 public class ScoreboardListener implements Listener {
 
 
     @EventHandler
-    public void onJoin(UserLoadedEvent e) {
-        if (ProfileData.get(e.getPlayer()).showScoreboard) addScoreboard(e.getPlayer());
+    public void onJoin(UserHandlerLoadedEvent e) {
+        if (e.getHandler() instanceof ProfileData
+                && ProfileData.get(e.getUser()).showScoreboard)
+            addScoreboard(e.getUser().getPlayer());
     }
 
     public static void addScoreboard(Player p) {
