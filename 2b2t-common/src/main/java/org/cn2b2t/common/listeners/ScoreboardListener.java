@@ -8,19 +8,19 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.cn2b2t.common.Main;
 import org.cn2b2t.common.functions.ProfileData;
 import org.cn2b2t.common.managers.ScoreboardManager;
 import org.cn2b2t.common.runnables.RestartRunnable;
+import org.cn2b2t.core.events.UserLoadedEvent;
 
 public class ScoreboardListener implements Listener {
 
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent e) {
+    public void onJoin(UserLoadedEvent e) {
         if (ProfileData.get(e.getPlayer()).showScoreboard) addScoreboard(e.getPlayer());
     }
 
