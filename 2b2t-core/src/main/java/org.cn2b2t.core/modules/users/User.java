@@ -271,7 +271,12 @@ public class User {
     }
 
     private void loadData() {
-        this.datafile = new File(Main.getInstance().getDataFolder() + "/userdatas/", this.getInkID() + ".yml");
+        File userdatasFolder = new File(Main.getInstance().getDataFolder() + "/userdatas");
+        if (!userdatasFolder.isDirectory() || !userdatasFolder.exists()) {
+            userdatasFolder.mkdir();
+        }
+
+        this.datafile = new File(userdatasFolder, this.getInkID() + ".yml");
         if (!datafile.exists()) {
             try {
                 datafile.createNewFile();
@@ -279,7 +284,7 @@ public class User {
                 Bukkit.getLogger().info("Could not load file " + "/userdatas/" + "yml" + ex);
             }
         }
-        datas = YamlConfiguration.loadConfiguration(datafile);
+        this.datas = YamlConfiguration.loadConfiguration(datafile);
     }
 
     public FileConfiguration getDatas() {
