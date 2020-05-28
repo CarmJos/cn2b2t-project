@@ -6,12 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="2b2t-spawn" />
         <module name="ImperialGuards" />
+        <module name="2b2t-common" />
         <module name="2b2t-proxy" />
         <module name="2b2t-core" />
+        <module name="2b2t-death" />
         <module name="2b2t-faction" />
-        <module name="2b2t-common" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="2b2t-donation" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

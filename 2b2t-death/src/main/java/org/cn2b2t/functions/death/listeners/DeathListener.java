@@ -1,4 +1,4 @@
-package org.cn2b2t.common.listeners;
+package org.cn2b2t.functions.death.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.SkullType;
@@ -16,7 +16,7 @@ public class DeathListener implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
-        if (e.getEntity().getKiller() != null && new Random().nextDouble() < 0.01) {
+        if (e.getEntity().getKiller() != null && new Random().nextDouble() < 0.02) {
             List<String> lore = new ArrayList<>();
             lore.add(e.getDeathMessage());
             ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());

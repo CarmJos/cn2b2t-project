@@ -21,7 +21,7 @@ public class ScoreboardListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        if (ProfileData.getProfileData(e.getPlayer()).showScoreboard) addScoreboard(e.getPlayer());
+        if (ProfileData.get(e.getPlayer()).showScoreboard) addScoreboard(e.getPlayer());
     }
 
     public static void addScoreboard(Player p) {
@@ -36,7 +36,7 @@ public class ScoreboardListener implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (!p.isOnline() || !ProfileData.getProfileData(p).showScoreboard) {
+                if (!p.isOnline() || !ProfileData.get(p).showScoreboard) {
                     cancel();
                 }
                 if (ScoreboardManager.scoreboards.containsKey(p)) {
@@ -50,7 +50,7 @@ public class ScoreboardListener implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (p == null || !p.isOnline() || ProfileData.getProfileData(p) != null || !ProfileData.getProfileData(p).showScoreboard) {
+                if (p == null || !p.isOnline() || ProfileData.get(p) != null || !ProfileData.get(p).showScoreboard) {
                     cancel();
                 }
                 if (ScoreboardManager.scoreboards.containsKey(p)) {
@@ -88,7 +88,7 @@ public class ScoreboardListener implements Listener {
 
 
     public static void updateLine(Player p, int i) {
-        if (!ProfileData.getProfileData(p).showScoreboard) return;
+        if (!ProfileData.get(p).showScoreboard) return;
 
         ScoreboardManager sm = ScoreboardManager.scoreboards.get(p);
         switch (i) {

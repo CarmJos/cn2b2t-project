@@ -9,8 +9,8 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
-import org.cn2b2t.common.Main;
 import org.cn2b2t.common.functions.ProfileData;
+import org.cn2b2t.core.utils.ColorParser;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +36,7 @@ public class Ignore implements CommandExecutor, TabCompleter {
 	}
 
 	private static void help(Player p) {
-		p.sendMessage(Main.color("&6-&e--&8----------------------------&e--&6-\n" +
+		p.sendMessage(ColorParser.parse("&6-&e--&8----------------------------&e--&6-\n" +
 				"&7屏蔽某人消息 &6/ignore &8<&6ID&8>\n" +
 				"&7注意，每次屏蔽退出服务器后即失效，若需要请再次屏蔽。" +
 				"&6-&e--&8----------------------------&e--&6-"));
@@ -44,13 +44,13 @@ public class Ignore implements CommandExecutor, TabCompleter {
 
 	private static void ignore(Player p, Player target) {
 		if (p != target) {
-			p.sendMessage(Main.color("&6-&e--&8----------------------------&e--&6-\n" +
+			p.sendMessage(ColorParser.parse("&6-&e--&8----------------------------&e--&6-\n" +
 					"&7已成功屏蔽 &2" + target.getName() + "&7 !\n" +
 					"&7注意，本次屏蔽退出服务器后即失效，若需要请再次屏蔽。" +
 					"&6-&e--&8----------------------------&e--&6-"));
-			ProfileData.getProfileData(p).ignorePlayer(target.getUniqueId());
+			ProfileData.get(p).ignorePlayer(target.getUniqueId());
 		} else {
-			p.sendMessage(Main.color("&7您无法屏蔽您自己！"));
+			p.sendMessage(ColorParser.parse("&7您无法屏蔽您自己！"));
 		}
 
 	}

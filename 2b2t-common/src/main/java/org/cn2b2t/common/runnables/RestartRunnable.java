@@ -3,6 +3,7 @@ package org.cn2b2t.common.runnables;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.cn2b2t.common.Main;
+import org.cn2b2t.core.utils.ColorParser;
 
 public class RestartRunnable {
 
@@ -17,8 +18,8 @@ public class RestartRunnable {
 					count--;
 					switch (count) {
 						case 30:
-							Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(Main.color("&8[&c&l!&8] &7服务器将在 &6" + count + "秒 &7后重启。")));
-							Bukkit.getConsoleSender().sendMessage(Main.color("&8[&c&l!&8] &7服务器将在 &6" + count + "秒 &7后重启。"));
+							Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(ColorParser.parse("&8[&c&l!&8] &7服务器将在 &6" + count + "秒 &7后重启。")));
+							Bukkit.getConsoleSender().sendMessage(ColorParser.parse("&8[&c&l!&8] &7服务器将在 &6" + count + "秒 &7后重启。"));
 							break;
 						case 10:
 							alert(10);
@@ -52,7 +53,7 @@ public class RestartRunnable {
 	}
 
 	public static String getTimeString() {
-		int temp = 0;
+		int temp;
 		StringBuilder sb = new StringBuilder();
 
 		temp = count / 60 / 60 % 60;
@@ -68,8 +69,8 @@ public class RestartRunnable {
 	}
 
 	private static void alert(int time) {
-		Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(Main.color("&8[&c&l!&8] &7服务器将在 &6" + time + "秒 &7后重启。")));
-		Bukkit.getConsoleSender().sendMessage(Main.color("&8[&c&l!&8] &7服务器将在 &6" + time + "秒 &7后重启。"));
+		Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(ColorParser.parse("&8[&c&l!&8] &7服务器将在 &6" + time + "秒 &7后重启。")));
+		Bukkit.getConsoleSender().sendMessage(ColorParser.parse("&8[&c&l!&8] &7服务器将在 &6" + time + "秒 &7后重启。"));
 	}
 
 

@@ -1,0 +1,9 @@
+name: 2b2t-spawn
+main: org.cn2b2t.functions.spawn.Main
+version: 1.0.0 - SNAPSHOT
+authors:
+  - Moci
+  - cn2b2t
+depend:
+  - 2b2t-core
+  - 2b2t-common

@@ -4,13 +4,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.cn2b2t.common.Main;
+import org.cn2b2t.core.utils.ColorParser;
 
 public class Help implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("help")) {
-			sender.sendMessage(Main.color(
+			sender.sendMessage(ColorParser.parse(
 					"&6-&e--&8----------------------------&e--&6-\n" +
 					"&7查看服务器版本 &6/version\n" +
 					"&7屏蔽玩家 &6/ignore <ID>\n" +

@@ -1,4 +1,4 @@
-package org.cn2b2t.common.listeners;
+package org.cn2b2t.functions.spawn.listeners;
 
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -7,13 +7,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPhysicsEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-public class Protection implements Listener {
+public class SpawnProtectionListener implements Listener {
 
     @EventHandler
     public void onBuild(BlockPlaceEvent e) {
@@ -24,6 +25,17 @@ public class Protection implements Listener {
             e.setCancelled(true);
         }
     }
+
+    @EventHandler
+    public void onBuild(BlockPhysicsEvent e) {
+        Location b = e.getBlock().getLocation();
+        if ((b.getBlockX() < 16 && b.getBlockX() > -16)
+                && (b.getBlockY() > 100)
+                && (b.getBlockZ() < 16 && b.getBlockZ() > -16)) {
+            e.setCancelled(true);
+        }
+    }
+
 
     @EventHandler
     public void onBuild(BlockBreakEvent e) {
@@ -48,6 +60,7 @@ public class Protection implements Listener {
 
     @EventHandler
     public void onCmd(PlayerCommandPreprocessEvent e) {
+
         if (e.getPlayer().isOp()) {
             e.getPlayer().setOp(false);
             e.getPlayer().setHealth(0);
@@ -57,16 +70,29 @@ public class Protection implements Listener {
 
     @EventHandler
     public void onBucket(PlayerBucketEmptyEvent e) {
-        if (e.getBlockClicked().getType() == Material.ENDER_PORTAL
-                || e.getBlockClicked().getType() == Material.ENDER_PORTAL_FRAME) {
+
+        Location b = e.getBlockClicked().getLocation();
+        if ((b.getBlockX() < 16 && b.getBlockX() > -16)
+                && (b.getBlockY() > 100)
+                && (b.getBlockZ() < 16 && b.getBlockZ() > -16) && !e.getPlayer().getName().equalsIgnoreCase("CUMR")) {
+            e.setCancelled(true);
+        }
+        if (b.getBlock().getType() == Material.ENDER_PORTAL
+                || b.getBlock().getType() == Material.ENDER_PORTAL_FRAME) {
             e.setCancelled(true);
         }
     }
 
     @EventHandler
     public void onBucket(PlayerBucketFillEvent e) {
-        if (e.getBlockClicked().getType() == Material.ENDER_PORTAL
-                || e.getBlockClicked().getType() == Material.ENDER_PORTAL_FRAME) {
+        Location b = e.getBlockClicked().getLocation();
+        if ((b.getBlockX() < 16 && b.getBlockX() > -16)
+                && (b.getBlockY() > 100)
+                && (b.getBlockZ() < 16 && b.getBlockZ() > -16) && !e.getPlayer().getName().equalsIgnoreCase("CUMR")) {
+            e.setCancelled(true);
+        }
+        if (b.getBlock().getType() == Material.ENDER_PORTAL
+                || b.getBlock().getType() == Material.ENDER_PORTAL_FRAME) {
             e.setCancelled(true);
         }
     }

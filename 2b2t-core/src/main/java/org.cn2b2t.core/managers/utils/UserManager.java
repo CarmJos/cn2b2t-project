@@ -1,9 +1,9 @@
 package org.cn2b2t.core.managers.utils;
 
-import org.cn2b2t.core.modules.users.AbstractUserHandler;
-import org.cn2b2t.core.modules.users.User;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.cn2b2t.core.modules.users.AbstractUserHandler;
+import org.cn2b2t.core.modules.users.User;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -36,6 +36,7 @@ public class UserManager {
     }
 
     public static void unregisterUser(Player p) {
+        users.get(p.getUniqueId().toString()).saveDatas();
         users.remove(p.getUniqueId().toString());
     }
 

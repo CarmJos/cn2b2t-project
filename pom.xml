@@ -10,11 +10,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>ImperialGuards</module>
         <module>2b2t-common</module>
         <module>2b2t-core</module>
         <module>2b2t-faction</module>
         <module>2b2t-proxy</module>
-        <module>ImperialGuards</module>
+        <module>2b2t-death</module>
+        <module>2b2t-spawn</module>
     </modules>
 
     <properties>

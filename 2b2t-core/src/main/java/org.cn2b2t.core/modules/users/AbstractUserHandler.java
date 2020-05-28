@@ -1,11 +1,9 @@
 package org.cn2b2t.core.modules.users;
 
-import org.cn2b2t.core.events.UserHandlerLoadedEvent;
-import org.cn2b2t.core.managers.utils.UserManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.cn2b2t.core.events.UserHandlerLoadedEvent;
 
 public abstract class AbstractUserHandler {
 

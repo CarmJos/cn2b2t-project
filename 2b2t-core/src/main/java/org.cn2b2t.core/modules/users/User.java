@@ -1,6 +1,8 @@
 package org.cn2b2t.core.modules.users;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.cn2b2t.core.Main;
@@ -13,6 +15,8 @@ import org.cn2b2t.core.modules.gui.GUI;
 import org.cn2b2t.core.utils.UUIDUtils;
 import org.spigotmc.AsyncCatcher;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.*;
 import java.util.logging.Level;
@@ -36,9 +40,13 @@ public class User {
 
     public boolean fullLoaded;
 
+    private File datafile;
+    private FileConfiguration datas;
+
+
     public User(Player player) {
         this.player = player;
-
+        loadData();
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -261,5 +269,28 @@ public class User {
         return !UserManager.getRegisteredUsers().contains(this);
     }
 
+    private void loadData() {
+        this.datafile = new File(Main.getInstance().getDataFolder() + "/userdatas/", this.getInkID() + ".yml");
+        if (!datafile.exists()) {
+            try {
+                datafile.createNewFile();
+            } catch (IOException ex) {
+                Bukkit.getLogger().info("Could not load file " + "/userdatas/" + "yml" + ex);
+            }
+        }
+        datas = YamlConfiguration.loadConfiguration(datafile);
+    }
+
+    public FileConfiguration getDatas() {
+        return this.datas;
+    }
+
+    public void saveDatas() {
+        try {
+            getDatas().save(datafile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

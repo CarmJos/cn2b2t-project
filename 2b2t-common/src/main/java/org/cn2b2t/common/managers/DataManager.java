@@ -6,6 +6,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.cn2b2t.common.Main;
 import org.cn2b2t.common.functions.ProfileData;
 import org.cn2b2t.core.managers.utils.database.Connection;
+import org.cn2b2t.core.utils.ColorParser;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,10 +32,10 @@ public class DataManager {
             public void run() {
                 DonateManager.monthly = DataManager.getDonateInAMonth();
                 DonateManager.total = DataManager.getTotalDonate();
-                Bukkit.getConsoleSender().sendMessage(Main.color(" \n本月赞助 &6" + DonateManager.monthly + "\n" +
+                Bukkit.getConsoleSender().sendMessage(ColorParser.parse(" \n本月赞助 &6" + DonateManager.monthly + "\n" +
                         "总共收到 &6" + DonateManager.total));
-                if (p.isOnline() && ProfileData.profileDatas.containsKey(p)) {
-                    ProfileData.getProfileData(p).updateDonates();
+                if (p.isOnline() && ProfileData.get(p) != null) {
+                    ProfileData.get(p).updateDonates();
                 }
             }
         }.runTaskLater(Main.getInstance(), 100L);

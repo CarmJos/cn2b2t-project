@@ -4,12 +4,9 @@ version: 1.0.0 - SNAPSHOT
 authors:
   - Moci
   - cn2b2t
-softdepend:
-  - VariableBridge
 depend:
-  - McPay
+  - 2b2t-core
 commands:
-  suicide:
   donate:
   ignore:
   settings:
