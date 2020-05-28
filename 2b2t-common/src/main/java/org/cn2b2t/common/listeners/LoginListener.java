@@ -52,14 +52,14 @@ public class LoginListener implements Listener {
                 for (Player pl : Bukkit.getOnlinePlayers()) {
                     if (ProfileData.get(pl) != null) {
                         if (ProfileData.get(pl).showJoinAndLeaveAlerts) {
-                            ColorParser.parse("&7玩家 " + ProfileData.get(p).getPrefix() + p.getName() + " &7加入了游戏。");
+                            pl.sendMessage(ColorParser.parse("&7玩家 " + ProfileData.get(p).getPrefix() + p.getName() + " &7加入了游戏。"));
                         }
                         NamePrefix.set(p, pl, ProfileData.get(pl).getPrefix());
                     }
                     NamePrefix.set(pl, p, ProfileData.get(p).getPrefix());
                 }
             }
-            ScoreboardManager.scoreboards.keySet().forEach(player -> ScoreboardListener.updateLine(player, 9));
+
         }
 
 

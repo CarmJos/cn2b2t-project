@@ -31,8 +31,11 @@ public class ScoreboardListener implements Listener {
         sm.create();
         ScoreboardManager.scoreboards.put(p, sm);
 
-        updateLine(p, 0);
 
+        updateLine(p, 0);
+        ScoreboardManager.scoreboards.keySet().stream()
+                .filter(player -> player != p)
+                .forEachOrdered(player -> ScoreboardListener.updateLine(player, 9));
         new BukkitRunnable() {
             @Override
             public void run() {
