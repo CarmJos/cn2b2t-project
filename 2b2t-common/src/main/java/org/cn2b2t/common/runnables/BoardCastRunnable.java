@@ -27,13 +27,17 @@ public class BoardCastRunnable {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (Bukkit.getOnlinePlayers().size() > 1) {
-                    String message = messages.get(index);
-                    if (index >= messages.size()) {
-                        index = 0;
-                    } else {
+                if (Bukkit.getOnlinePlayers().size() >= 1) {
+                    if (index < messages.size()) {
+                        String message = messages.get(index);
                         Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(" \n" + message + " \n "));
-                        index = index + 1;
+                        if (index + 1 < messages.size()) {
+                            index = index + 1;
+                        } else {
+                            index = 0;
+                        }
+                    } else {
+                        index = 0;
                     }
                 }
             }
