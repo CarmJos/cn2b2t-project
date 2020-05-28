@@ -24,7 +24,7 @@ public class Main extends JavaPlugin {
         Main.instance = this;
         pluginManager = Bukkit.getPluginManager();
 
-        log("&c&lGhost " + this.getName().substring(5) + " &7开始加载...");
+        log("&c&lcn2b2t " + this.getName().substring(5) + " &7开始加载...");
 
         log("&7├ &f加载配置文件管理器...");
         ConfigManager.loadConfig();

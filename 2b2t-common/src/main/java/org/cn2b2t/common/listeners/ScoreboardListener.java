@@ -156,7 +156,7 @@ public class ScoreboardListener implements Listener {
                 break;
             }
             case 13: {
-                sm.setLine(12, "§6CN2b2t.org");
+                sm.setLine(12, "§ecn2b2t.org");
                 break;
             }
         }
