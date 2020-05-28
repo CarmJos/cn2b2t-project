@@ -45,7 +45,7 @@ public class Main extends JavaPlugin {
         WorldBorderManager.init();
         DonateManager.init();
 
-        UserManager.removeHandler(ProfileData.class);
+        UserManager.regHandler(ProfileData.class);
 
         new BoardCastRunnable();
         new RestartRunnable(21600);
