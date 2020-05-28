@@ -1,6 +1,7 @@
 package org.cn2b2t.common.functions;
 
 import org.bukkit.entity.Player;
+import org.cn2b2t.common.Main;
 import org.cn2b2t.common.listeners.ScoreboardListener;
 import org.cn2b2t.common.managers.DataManager;
 import org.cn2b2t.common.managers.DonateManager;
@@ -47,6 +48,8 @@ public class ProfileData extends AbstractUserHandler {
         showDeathMessages = UserManager.getUser(p).getDatas().getBoolean(p.getUniqueId().toString() + ".settings.showDeathMessages", true);
         showScoreboard = UserManager.getUser(p).getDatas().getBoolean(p.getUniqueId().toString() + ".settings.showScoreboard", true);
         showJoinAndLeaveAlerts = UserManager.getUser(p).getDatas().getBoolean(p.getUniqueId().toString() + ".settings.showJoinAndLeaveAlerts", true);
+
+        callLoadedEvent(Main.getInstance());
     }
 
     public double getMonthlyDonate() {
