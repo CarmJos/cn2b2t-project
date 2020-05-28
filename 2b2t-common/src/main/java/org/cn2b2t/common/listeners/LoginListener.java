@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.cn2b2t.common.enums.Locations;
 import org.cn2b2t.common.functions.ProfileData;
 import org.cn2b2t.common.managers.KitManager;
+import org.cn2b2t.core.events.UserHandlerLoadedEvent;
 import org.cn2b2t.core.managers.render.NamePrefix;
 import org.cn2b2t.core.utils.ColorParser;
 
@@ -37,20 +38,28 @@ public class LoginListener implements Listener {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7本服额外添加几个了几个命令，详细请输入 &6/help &7。"));
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6--&e-&f-----------------------------&e-&6--"));
             p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1L, 1L);
-        } else {
-            Bukkit.getOnlinePlayers().stream()
-                    .filter(pl -> ProfileData.get(pl) != null)
-                    .filter(pl -> ProfileData.get(pl).showJoinAndLeaveAlerts)
-                    .forEachOrdered(pl -> ColorParser.parse("&7玩家 " + ProfileData.get(p).getPrefix() + p.getName() + " &7加入了游戏。"));
         }
 
 
-        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            if (ProfileData.get(onlinePlayer) != null) {
-                NamePrefix.set(p, onlinePlayer, ProfileData.get(onlinePlayer).getPrefix());
+    }
+
+    @EventHandler
+    public void onJoin(UserHandlerLoadedEvent e) {
+        if (e.getHandler() instanceof ProfileData) {
+            Player p = e.getUser().getPlayer();
+            if (p.hasPlayedBefore()) {
+                for (Player pl : Bukkit.getOnlinePlayers()) {
+                    if (ProfileData.get(pl) != null) {
+                        if (ProfileData.get(pl).showJoinAndLeaveAlerts) {
+                            ColorParser.parse("&7玩家 " + ProfileData.get(p).getPrefix() + p.getName() + " &7加入了游戏。");
+                        }
+                        NamePrefix.set(p, pl, ProfileData.get(pl).getPrefix());
+                    }
+                    NamePrefix.set(pl, p, ProfileData.get(p).getPrefix());
+                }
             }
-            NamePrefix.set(onlinePlayer, p, ProfileData.get(p).getPrefix());
         }
+
 
     }
 }
