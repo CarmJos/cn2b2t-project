@@ -108,7 +108,7 @@ public class ScoreboardListener implements Listener {
                 sm.setLine(10, " 当前TPS §6" + (int) (Bukkit.getServer().getTPS()[0] * 100000.0) / 100000.0);
                 sm.setLine(11, " 下次重启 §6" + RestartRunnable.getTimeString());
                 sm.setLine(12, "§9");
-                sm.setLine(13, "§6CN2b2t.org");
+                sm.setLine(13, "§6cn2b2t.org");
             }
             case 1: {
                 sm.setLine(1, "杀敌/死亡 §6" + (p.getStatistic(Statistic.PLAYER_KILLS) + p.getStatistic(Statistic.MOB_KILLS)) + "§8/§6" + p.getStatistic(Statistic.DEATHS));
