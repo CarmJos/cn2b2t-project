@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.cn2b2t.common.enums.Locations;
 import org.cn2b2t.common.functions.ProfileData;
 import org.cn2b2t.common.managers.KitManager;
+import org.cn2b2t.common.managers.ScoreboardManager;
 import org.cn2b2t.core.events.UserHandlerLoadedEvent;
 import org.cn2b2t.core.managers.render.NamePrefix;
 import org.cn2b2t.core.utils.ColorParser;
@@ -58,6 +59,7 @@ public class LoginListener implements Listener {
                     NamePrefix.set(pl, p, ProfileData.get(p).getPrefix());
                 }
             }
+            ScoreboardManager.scoreboards.keySet().forEach(player -> ScoreboardListener.updateLine(player, 9));
         }
 
 

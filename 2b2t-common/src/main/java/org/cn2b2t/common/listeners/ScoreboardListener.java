@@ -33,8 +33,6 @@ public class ScoreboardListener implements Listener {
 
         updateLine(p, 0);
 
-        Bukkit.getOnlinePlayers().stream().filter(player -> player != p).forEachOrdered(player -> updateLine(player, 9));
-
         new BukkitRunnable() {
             @Override
             public void run() {
