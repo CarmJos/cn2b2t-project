@@ -14,8 +14,8 @@ public class DeathManager {
         Random r = new Random();
 
         while (true) {
-            int x = -15000 + r.nextInt(30001);
-            int z = -15000 + r.nextInt(30001);
+            int x = -1500 + r.nextInt(3001);
+            int z = -1500 + r.nextInt(3001);
             int y = w.getHighestBlockYAt(x, z);
             Location loc = new Location(w, x, y, z);
             Biome locBiome = w.getBiome(loc.getChunk().getX(), loc.getChunk().getZ());
