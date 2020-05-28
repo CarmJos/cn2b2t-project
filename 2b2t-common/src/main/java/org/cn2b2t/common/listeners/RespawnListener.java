@@ -2,6 +2,7 @@ package org.cn2b2t.common.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
@@ -59,10 +60,26 @@ public class RespawnListener implements Listener {
                     && locBiome != Biome.DEEP_OCEAN
                     && locBiome != Biome.RIVER
                     && locBiome != Biome.DESERT
-                    && locBiome != Biome.DESERT_HILLS) {
-                return loc;
+                    && locBiome != Biome.DESERT_HILLS
+                    && !canReplace(loc.getBlock().getType())) {
+                return loc.add(0, 1, 0);
             }
         }
+    }
+
+    public boolean canReplace(Material material) {
+        switch (material) {
+            case WATER:
+            case LAVA:
+            case STATIONARY_WATER:
+            case STATIONARY_LAVA:
+            case AIR:
+                return true;
+            default:
+                return false;
+
+        }
+
     }
 
 }
