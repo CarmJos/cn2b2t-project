@@ -88,7 +88,7 @@ public class ScoreboardListener implements Listener {
 
 
     public static void updateLine(Player p, int i) {
-        if (!ProfileData.get(p).showScoreboard) return;
+        if (!ProfileData.get(p).showScoreboard || !ScoreboardManager.scoreboards.containsKey(p)) return;
 
         ScoreboardManager sm = ScoreboardManager.scoreboards.get(p);
         switch (i) {
