@@ -46,7 +46,7 @@ public class User {
 
     public User(Player player) {
         this.player = player;
-
+        loadData();
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -93,7 +93,7 @@ public class User {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
-                        loadData();
+
                         fullLoaded = true;
                         Bukkit.getPluginManager().callEvent(new UserLoadedEvent(User.this));
                     }
@@ -276,7 +276,7 @@ public class User {
             userdatasFolder.mkdir();
         }
 
-        this.datafile = new File(userdatasFolder, this.getInkID() + ".yml");
+        this.datafile = new File(userdatasFolder, this.getPlayer().getUniqueId() + ".yml");
         if (!datafile.exists()) {
             try {
                 datafile.createNewFile();
