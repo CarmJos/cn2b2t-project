@@ -27,7 +27,7 @@ public class ScoreboardListener implements Listener {
     }
 
     public static void addScoreboard(Player p) {
-        ScoreboardManager sm = new ScoreboardManager(p, "§f生存 §8| §6§lCN2B2T");
+        ScoreboardManager sm = new ScoreboardManager(p, "§f生存 §8| §6§lcn2b2t");
         sm.create();
         ScoreboardManager.scoreboards.put(p, sm);
 
@@ -36,7 +36,7 @@ public class ScoreboardListener implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (!p.isOnline() || !ProfileData.get(p).showScoreboard) {
+                if (!p.isOnline() || (ProfileData.get(p) != null && !ProfileData.get(p).showScoreboard)) {
                     cancel();
                 }
                 if (ScoreboardManager.scoreboards.containsKey(p)) {
@@ -50,7 +50,7 @@ public class ScoreboardListener implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (p == null || !p.isOnline() || ProfileData.get(p) != null || !ProfileData.get(p).showScoreboard) {
+                if (p == null || !p.isOnline() || (ProfileData.get(p) != null && !ProfileData.get(p).showScoreboard)) {
                     cancel();
                 }
                 if (ScoreboardManager.scoreboards.containsKey(p)) {
