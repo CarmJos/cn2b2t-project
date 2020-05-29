@@ -11,7 +11,7 @@ import java.util.logging.Level;
 
 public class Connection {
 
-	public boolean debug_outputSQL = true;
+	public boolean debug_outputSQL = false;
 	private Database sql;
 	private boolean databaseIsOpen;
 	private DatabaseConfig databaseConfig;
