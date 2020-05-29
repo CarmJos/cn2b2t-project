@@ -11,6 +11,7 @@
         <module name="2b2t-common" />
         <module name="2b2t-proxy" />
         <module name="2b2t-core" />
+        <module name="2b2t-logger" />
         <module name="2b2t-death" />
         <module name="2b2t-faction" />
       </profile>

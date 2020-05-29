@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.cn2b2t.core.managers.utils.ServersManager;
 import org.cn2b2t.core.utils.ColorParser;
+import org.cn2b2t.logger.managers.LoggerManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +39,7 @@ public class IG implements CommandExecutor {
                 }
                 String username = args[1];
                 String reason = Arrays.stream(args, 2, args.length - 1).collect(Collectors.joining());
+                LoggerManager.writeIn(Bukkit.getOfflinePlayer(username).getUniqueId(), username, Bukkit.getServer().getPort(), LoggerManager.LogType.AC, reason);
                 return true;
             }
             case "punish": {

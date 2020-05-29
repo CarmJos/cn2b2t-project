@@ -17,6 +17,7 @@
         <module>2b2t-proxy</module>
         <module>2b2t-death</module>
         <module>2b2t-spawn</module>
+        <module>2b2t-logger</module>
     </modules>
 
     <properties>
