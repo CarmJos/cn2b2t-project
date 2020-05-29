@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.cn2b2t.core.managers.utils.DataManager;
 import org.cn2b2t.core.managers.utils.database.Connection;
+import org.cn2b2t.core.utils.UUIDUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class LoggerManager {
 
     public static void logConsole(final LogType lt, final String s) {
         final String name = "CONSOLE";
-        writeIn(UUID.fromString("00000000000000000000000000000000"), name, Bukkit.getServer().getPort(), lt, s);
+        writeIn(UUIDUtils.toUUID("00000000000000000000000000000000"), name, Bukkit.getServer().getPort(), lt, s);
     }
 
     public static String getDateString() {

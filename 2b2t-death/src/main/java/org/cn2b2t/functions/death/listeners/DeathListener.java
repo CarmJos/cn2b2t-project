@@ -26,9 +26,9 @@ public class DeathListener implements Listener {
             meta.setLore(lore);
             skull.setItemMeta(meta);
             e.getDrops().add(skull);
-            LoggerManager.log(LoggerManager.LogType.KILLED, e.getEntity(), e.getDeathMessage());
+            LoggerManager.log(LoggerManager.LogType.KILLED, e.getEntity(), e.getDeathMessage() + e.getEntity().getLocation().toString());
         } else {
-            LoggerManager.log(LoggerManager.LogType.DEATH, e.getEntity(), e.getDeathMessage());
+            LoggerManager.log(LoggerManager.LogType.DEATH, e.getEntity(), e.getDeathMessage() + e.getEntity().getLocation().toString());
         }
 
 
