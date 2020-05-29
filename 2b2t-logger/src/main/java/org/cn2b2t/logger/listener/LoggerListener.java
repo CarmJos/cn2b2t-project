@@ -5,9 +5,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.ServerCommandEvent;
+import org.cn2b2t.common.functions.ProfileData;
+import org.cn2b2t.core.events.UserHandlerLoadedEvent;
 import org.cn2b2t.logger.managers.LoggerManager;
 
 public class LoggerListener implements Listener {
@@ -23,9 +24,13 @@ public class LoggerListener implements Listener {
         LoggerManager.log(LoggerManager.LogType.COMMAND, e.getPlayer(), e.getMessage().replace("\\", "\\\\"));
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onJoin(final PlayerJoinEvent e) {
-        LoggerManager.log(LoggerManager.LogType.JOIN, e.getPlayer(), "Joined");
+    @EventHandler
+    public void onJoin(final UserHandlerLoadedEvent e) {
+        if (e.getHandler() instanceof ProfileData) {
+            String ip = e.getUser().getPlayer().getAddress().getAddress().toString();
+            LoggerManager.log(LoggerManager.LogType.JOIN, e.getUser().getPlayer(), ip);
+        }
+
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
