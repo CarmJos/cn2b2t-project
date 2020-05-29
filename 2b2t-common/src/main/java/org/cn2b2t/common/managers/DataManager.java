@@ -22,7 +22,8 @@ public class DataManager {
     public static void init() {
         dataConnection = org.cn2b2t.core.managers.utils.DataManager.getConnection();
 
-        dataConnection.SQLqueryWithNoResult("CREATE TABLE IF NOT EXISTS `" + "game_cn2b2t_donatelist" + "`(`id` INT(11) NOT NULL AUTO_INCREMENT,`uuid` varchar(50) , `order_on` varchar(50), `price` int, `time` bigint, PRIMARY KEY (`id`), UNIQUE KEY(`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+        dataConnection.SQLqueryWithNoResult("CREATE TABLE IF NOT EXISTS `" + "game_cn2b2t_donatelist"
+                + "`(`id` INT(11) NOT NULL AUTO_INCREMENT,`uuid` varchar(50) , `order_on` varchar(50), `price` int, `time` bigint, PRIMARY KEY (`id`), UNIQUE KEY(`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
     }
 
     public static void saveData(Player p, String order_on, int price) {
@@ -84,7 +85,7 @@ public class DataManager {
     }
 
     public static int getTotalDonate() {
-        ResultSet query = dataConnection.SQLquery("SELECT * FROM `2b2t_donatelist`");
+        ResultSet query = dataConnection.SQLquery("SELECT * FROM `game_cn2b2t_donatelist`");
         int result = 0;
         try {
             while (query.next()) {

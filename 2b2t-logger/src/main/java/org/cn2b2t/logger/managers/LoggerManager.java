@@ -36,7 +36,7 @@ public class LoggerManager {
 
     public static void writeIn(UUID uuid, final String name, final int port, final LogType t, final String value) {
         DataManager.getConnection().insertAsyn(tableName,
-                new String[]{"uuid", "server", "time", "time", "name", "type", "value"},
+                new String[]{"uuid", "server", "time", "name", "type", "value"},
                 new Object[]{uuid.toString(), port, getDateString(), name, t.name(), StringEscapeUtils.escapeSql(value)});
     }
 
