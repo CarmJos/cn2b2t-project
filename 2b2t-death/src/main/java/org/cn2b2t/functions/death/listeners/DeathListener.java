@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.cn2b2t.logger.managers.LoggerManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,11 @@ public class DeathListener implements Listener {
             meta.setLore(lore);
             skull.setItemMeta(meta);
             e.getDrops().add(skull);
+            LoggerManager.log(LoggerManager.LogType.KILLED, e.getEntity(), e.getDeathMessage());
+        } else {
+            LoggerManager.log(LoggerManager.LogType.DEATH, e.getEntity(), e.getDeathMessage());
         }
+
 
     }
 

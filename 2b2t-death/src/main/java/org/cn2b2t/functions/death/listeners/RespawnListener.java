@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.cn2b2t.functions.death.managers.users.UserBedManager;
 import org.cn2b2t.functions.death.managers.utils.DeathManager;
+import org.cn2b2t.logger.managers.LoggerManager;
 
 public class RespawnListener implements Listener {
 
@@ -25,6 +26,7 @@ public class RespawnListener implements Listener {
             p.sendMessage("§7由于您之前的床已被破坏或遮挡，无法将您传送到您的床边。");
             e.setRespawnLocation(DeathManager.randomLocation(Bukkit.getWorld("world")));
         }
+        LoggerManager.log(LoggerManager.LogType.RESPAWN, p, e.getRespawnLocation().toString());
 
     }
 
@@ -38,7 +40,6 @@ public class RespawnListener implements Listener {
                 p.sendMessage("§7由于您之前的床已被破坏或遮挡，无法将您传送到您的床边。");
                 p.teleport(DeathManager.randomLocation(Bukkit.getWorld("world")));
             }
-
         }
     }
 

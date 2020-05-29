@@ -26,6 +26,9 @@ public class LoggerManager {
         JOIN,
         QUIT,
         AC,
+        DEATH,
+        RESPAWN,
+        KILLED,
         COMMAND
     }
 

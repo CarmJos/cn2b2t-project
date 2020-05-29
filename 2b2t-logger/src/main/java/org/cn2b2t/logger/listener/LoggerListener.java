@@ -3,6 +3,7 @@ package org.cn2b2t.logger.listener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -37,6 +38,8 @@ public class LoggerListener implements Listener {
     public void onQuit(final PlayerQuitEvent e) {
         LoggerManager.log(LoggerManager.LogType.QUIT, e.getPlayer(), "quit");
     }
+
+
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onCMD(final ServerCommandEvent e) {
