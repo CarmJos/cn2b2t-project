@@ -37,6 +37,7 @@ public final class TabCompleteListener implements Listener {
                                     || shouldCancel(message, "//")
                                     || shouldCancel(message, "/cmi")
                                     || shouldCancel(message, "/mcpay")
+                                    || shouldCancel(message, "/?")
                                     || shouldCancel(message, "/version")
                                     || shouldCancel(message, "/help")
                                     || shouldCancel(message, "/bukkit:")
@@ -61,6 +62,7 @@ public final class TabCompleteListener implements Listener {
                     || message.startsWith("/minecraft:")
                     || message.startsWith("/version")
                     || message.startsWith("/ver")
+                    || message.startsWith("/?")
                     || message.startsWith("/bukkit:")) {
                 e.setCancelled(true);
             }
