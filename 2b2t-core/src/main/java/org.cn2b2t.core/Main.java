@@ -9,7 +9,10 @@ import org.cn2b2t.core.commands.Kar;
 import org.cn2b2t.core.listener.JoinListener;
 import org.cn2b2t.core.listener.TabCompleteListener;
 import org.cn2b2t.core.managers.users.UserValueManager;
-import org.cn2b2t.core.managers.utils.*;
+import org.cn2b2t.core.managers.utils.ConfigManager;
+import org.cn2b2t.core.managers.utils.DataManager;
+import org.cn2b2t.core.managers.utils.MessagerManager;
+import org.cn2b2t.core.managers.utils.ServersManager;
 import org.cn2b2t.core.utils.ColorParser;
 
 import java.util.logging.Level;
@@ -38,6 +41,15 @@ public class Main extends JavaPlugin {
 //
         log("&7├ &f启用跨服管理器...");
         ServersManager.init();
+        if (Main.getInstance().getConfig().getBoolean("Servers.auto-register", true)) {
+            log("&7├ &f检测到启用自动注册，即将尝试向 SYSTEM.CONENCTION 注册。");
+            ServersManager.registerServer(
+                    "single-" + Integer.toHexString(Bukkit.getPort()),
+                    (Bukkit.getServer().getIp() == null || Bukkit.getServer().getIp().equalsIgnoreCase("") ? "127.0.0.1" : Bukkit.getServer().getIp()),
+                    Bukkit.getPort(),
+                    "cn2b2t"
+            );
+        }
 
         log("&7├ &f启用用户Value管理器....");
         UserValueManager.init();
