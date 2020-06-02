@@ -74,6 +74,8 @@ public class Main extends JavaPlugin {
     public void onDisable() {
         log("&c&LGhost &f" + this.getName().substring(5) + " &7开始卸载...");
 
+        log("&7├ &f移除服务器");
+        ServersManager.unregisterServer();
 
         log("&7├ &f卸载监听器...");
         Bukkit.getServicesManager().unregisterAll(this);
@@ -82,6 +84,7 @@ public class Main extends JavaPlugin {
 
         log("&7├ &f关闭线程...");
         Main.getInstance().getServer().getScheduler().cancelTasks(Main.getInstance());
+
 
         log("&7└ &a&l卸载完成！");
     }
