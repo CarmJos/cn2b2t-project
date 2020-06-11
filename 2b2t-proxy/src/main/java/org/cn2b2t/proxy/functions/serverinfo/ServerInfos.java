@@ -1,7 +1,6 @@
 package org.cn2b2t.proxy.functions.serverinfo;
 
 import org.cn2b2t.proxy.Main;
-import org.cn2b2t.proxy.functions.PlayerCounter;
 import org.cn2b2t.proxy.utils.MathMethods;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.Favicon;

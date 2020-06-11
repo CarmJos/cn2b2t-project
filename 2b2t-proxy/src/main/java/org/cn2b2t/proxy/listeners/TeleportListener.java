@@ -14,9 +14,7 @@ public class TeleportListener implements Listener {
         ProxyUser u = UserManager.getUser(e.getPlayer().getName());
         if (u != null && u.hasTarget()) {
             e.setTarget(u.getServerTarget());
-//			if (u.getTargetServerName().equalsIgnoreCase("SYSTEM.MAINLOBBY")) {
-//				u.updatePermission();
-//			}
+
         }
 
     }

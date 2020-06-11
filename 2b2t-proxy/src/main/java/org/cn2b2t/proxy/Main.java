@@ -8,7 +8,6 @@ import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.scheduler.ScheduledTask;
 import org.cn2b2t.proxy.functions.DatabaseConfig;
-import org.cn2b2t.proxy.functions.permission.PermissionMain;
 import org.cn2b2t.proxy.functions.serverinfo.ServerInfoMain;
 import org.cn2b2t.proxy.listeners.LoginListener;
 import org.cn2b2t.proxy.listeners.QuitListener;
@@ -42,7 +41,6 @@ public class Main extends Plugin {
         loadConfigs();
 
         DataManager.init();
-        PermissionMain.init();
         ServerInfoMain.init();
         UserValueManager.init();
 

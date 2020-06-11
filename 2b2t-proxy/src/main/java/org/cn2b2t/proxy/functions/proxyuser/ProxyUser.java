@@ -1,173 +1,151 @@
 package org.cn2b2t.proxy.functions.proxyuser;
 
-import org.cn2b2t.proxy.Main;
-import org.cn2b2t.proxy.functions.Account;
-import org.cn2b2t.proxy.functions.permission.DataPermissionGroup;
-import org.cn2b2t.proxy.functions.permission.PermissionLoader;
-import org.cn2b2t.proxy.functions.permission.PermissionManager;
-import org.cn2b2t.proxy.functions.serverinfo.ServerInfoConfig;
-import org.cn2b2t.proxy.managers.DataManager;
-import org.cn2b2t.proxy.managers.UserValueManager;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.scheduler.BungeeScheduler;
+import org.cn2b2t.proxy.Main;
+import org.cn2b2t.proxy.functions.Account;
+import org.cn2b2t.proxy.functions.serverinfo.ServerInfoConfig;
+import org.cn2b2t.proxy.managers.DataManager;
+import org.cn2b2t.proxy.managers.UserValueManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 public class ProxyUser {
 
 
-	private String name;
-	private int inkID;
-	private UUID mojangUUID;
-	private UUID gameUUID;
+    private String name;
+    private int inkID;
+    private UUID mojangUUID;
+    private UUID gameUUID;
 
 
-	private boolean isRegistered;
+    private boolean isRegistered;
 
-	private int version;
+    private int version;
 
-	private boolean hasTarget;
-	private ServerInfo serverTarget;
+    private boolean hasTarget;
+    private ServerInfo serverTarget;
 
-	private String targetServerName;
-
-
-	private Map<String, String> values;
+    private String targetServerName;
 
 
-	public ProxyUser(String userName, String connectedIP, Integer version, UUID uuid, UUID mojangUUID) {
-		this.name = userName;
-		this.targetServerName = ServerInfoConfig.getServerInfo(connectedIP).getTargetServer();
-
-		this.version = version;
-
-		
-
-		isRegistered = Account.isRegistered(userName);
-		if (isRegistered) {
-			inkID = Account.getInkID(name);
-			this.mojangUUID = mojangUUID;
-			gameUUID = uuid;
-			values = UserValueManager.getDataValues(inkID);
-		} else {
-			inkID = -1;
-			this.mojangUUID = mojangUUID;
-			values = new HashMap<>();
-		}
+    private Map<String, String> values;
 
 
-		if (!isOnlineMode() && !ServerInfoConfig.getServerInfo(connectedIP).isDirectTeleport()) {
-			new BungeeScheduler().runAsync(Main.getInstance(), () -> {
-				DataManager.putTarget(userName, targetServerName);
-			});
-		}
+    public ProxyUser(String userName, String connectedIP, Integer version, UUID uuid, UUID mojangUUID) {
+        this.name = userName;
+        this.targetServerName = ServerInfoConfig.getServerInfo(connectedIP).getTargetServer();
 
-		new BungeeScheduler().runAsync(Main.getInstance(), this::createTempUser);
+        this.version = version;
 
-		new BungeeScheduler().runAsync(Main.getInstance(), this::updatePermission);
 
-	}
+        isRegistered = Account.isRegistered(userName);
+        if (isRegistered) {
+            inkID = Account.getInkID(name);
+            this.mojangUUID = mojangUUID;
+            gameUUID = uuid;
+            values = UserValueManager.getDataValues(inkID);
+        } else {
+            inkID = -1;
+            this.mojangUUID = mojangUUID;
+            values = new HashMap<>();
+        }
 
-	public UUID getGameUUID() {
-		return gameUUID;
-	}
 
-	public int getInkID() {
-		return inkID;
-	}
+        if (!isOnlineMode() && !ServerInfoConfig.getServerInfo(connectedIP).isDirectTeleport()) {
+            new BungeeScheduler().runAsync(Main.getInstance(), () -> {
+                DataManager.putTarget(userName, targetServerName);
+            });
+        }
 
-	public boolean isRegistered() {
-		return isRegistered;
-	}
+        new BungeeScheduler().runAsync(Main.getInstance(), this::createTempUser);
 
-	public void updatePermission() {
-		new BungeeScheduler().runAsync(Main.getInstance(), () -> {
-			List<DataPermissionGroup> groups = PermissionManager.getUserGroup(inkID);
-			new BungeeScheduler().schedule(Main.getInstance(), () -> {
-				BungeeCord.getInstance().getConsole().sendMessage("loading perms of " + name);
-				PermissionLoader.loadGroupPermission(BungeeCord.getInstance().getPlayer(name), groups);//加载玩家的组权限
-				PermissionLoader.loadUserPermission(BungeeCord.getInstance().getPlayer(name), PermissionManager.getPermsIgnoreGroup(inkID));
-			}, 0, TimeUnit.MILLISECONDS);
-		});
-	}
+    }
 
-	public Map<String, String> getValues() {
-		return values;
-	}
+    public UUID getGameUUID() {
+        return gameUUID;
+    }
 
-	public void setServerTarget(String server) {
-		this.serverTarget = BungeeCord.getInstance().getServerInfo(server) != null ?
-				BungeeCord.getInstance().getServerInfo(server) : BungeeCord.getInstance().getServerInfo(ServerInfoConfig.defaultInfo.getTargetServer());
-		hasTarget = true;
-	}
+    public int getInkID() {
+        return inkID;
+    }
 
-	public ServerInfo getServerTarget() {
-		hasTarget = false;
-		return serverTarget;
-	}
+    public boolean isRegistered() {
+        return isRegistered;
+    }
 
-	public boolean isOnlineMode() {
-		return mojangUUID != null;
-	}
 
-	public boolean isRealOnlineMode() {
-		return ProxyServer.getInstance().getPlayer(name).getPendingConnection().isOnlineMode();
-	}
+    public Map<String, String> getValues() {
+        return values;
+    }
 
-	public UUID getMojangUUID() {
-		return mojangUUID;
-	}
+    public void setServerTarget(String server) {
+        this.serverTarget = BungeeCord.getInstance().getServerInfo(server) != null ?
+                BungeeCord.getInstance().getServerInfo(server) : BungeeCord.getInstance().getServerInfo(ServerInfoConfig.defaultInfo.getTargetServer());
+        hasTarget = true;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public ServerInfo getServerTarget() {
+        hasTarget = false;
+        return serverTarget;
+    }
 
-	public void createTempUser() {
-		ResultSet query = DataManager.getTempConnection().SQLquery("tempuser", "name", name);
-		try {
-			boolean exist = false;
-			if(query != null){
-				if(query.next()){
-					exist = true;
-					new BungeeScheduler().runAsync(Main.getInstance(), () -> DataManager.getTempConnection()
-							.update("tempuser",
-									new String[]{"name", "isonlinemode", "version"},
-									new Object[]{getName(), isRealOnlineMode() ? 1 : 0, version},
-									new String[]{"name"},
-									new Object[]{name}));
-				}
-				query.close();
-			}
-			if(!exist){
-				new BungeeScheduler().runAsync(Main.getInstance(), () -> DataManager.getTempConnection()
-						.insert("tempuser",
-								new String[]{"name", "isonlinemode", "version"},
-								new Object[]{getName(), isRealOnlineMode() ? 1 : 0, version}));
-			}
-		} catch (SQLException e){
-			e.printStackTrace();
-		}
-	}
+    public boolean isOnlineMode() {
+        return mojangUUID != null;
+    }
 
-	public String getTargetServerName() {
-		return targetServerName;
-	}
+    public boolean isRealOnlineMode() {
+        return ProxyServer.getInstance().getPlayer(name).getPendingConnection().isOnlineMode();
+    }
 
-	public boolean hasTarget() {
-		return hasTarget;
-	}
+    public UUID getMojangUUID() {
+        return mojangUUID;
+    }
 
-	public void loadPermission() {
-		PermissionManager.updatePermission(BungeeCord.getInstance().getPlayer(name));
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void createTempUser() {
+        ResultSet query = DataManager.getTempConnection().SQLquery("tempuser", "name", name);
+        try {
+            boolean exist = false;
+            if (query != null) {
+                if (query.next()) {
+                    exist = true;
+                    new BungeeScheduler().runAsync(Main.getInstance(), () -> DataManager.getTempConnection()
+                            .update("tempuser",
+                                    new String[]{"name", "isonlinemode", "version"},
+                                    new Object[]{getName(), isRealOnlineMode() ? 1 : 0, version},
+                                    new String[]{"name"},
+                                    new Object[]{name}));
+                }
+                query.close();
+            }
+            if (!exist) {
+                new BungeeScheduler().runAsync(Main.getInstance(), () -> DataManager.getTempConnection()
+                        .insert("tempuser",
+                                new String[]{"name", "isonlinemode", "version"},
+                                new Object[]{getName(), isRealOnlineMode() ? 1 : 0, version}));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getTargetServerName() {
+        return targetServerName;
+    }
+
+    public boolean hasTarget() {
+        return hasTarget;
+    }
 
 
 }
