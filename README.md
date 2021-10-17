@@ -8,11 +8,25 @@ cn2b2t服务器基础插件代码集合。
 
 <img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" />
 
-本项目创建初衷为讽刺China2B2T的圈钱行为，后为向cn2b2t玩家提供良好的游玩环境，创造有中国特色的仿2b2t类生存服务器而继续维护。
+本项目为讽刺China2B2T的圈钱行为而创立；后为向cn2b2t玩家提供良好的游玩环境，创造有中国特色的仿2b2t类生存服务器而继续维护。
 
-## 项目变动
+在2019年因运营结构改变，cn2b2t被迫关服，并开放相关代码。
 
-因运营结构改变，cn2b2t被迫关服，并开放相关代码。
+## 相关视频
+
+### 来自开发者
+- [China2b2t?不如我20分钟写的cn2b2t，真正无管理!](https://www.bilibili.com/video/BV15t411J7FA)
+- [China2B2T处理问题的态度令人发指！国服不能有良性竞争？！](https://www.bilibili.com/video/BV1st411K7es)
+- [听说2b2t是在抖音上突然火的？](https://www.bilibili.com/video/BV17t41177VP)
+- [绝不走China2B2T的死路！高中程序员最终决定将CN2B2T转型！](https://www.bilibili.com/video/BV1Kt411P7F4)
+
+### 来自其他UP主
+
+- [【Minecraft】无政府无管理cn2b2t](https://www.bilibili.com/video/BV1Nt411M7xj) `是奥SA`
+- [【CN2B2T】10多了个人在服务器生存了8天会发生什么？](https://www.bilibili.com/video/BV1E4411X73h) `是奥SA`
+- [我的世界-cn2t2b服务器生存日记](https://www.bilibili.com/video/BV12J411u7Em) `咸鱼菜鸟c`
+- [CN2b2t生存日记<第一集>](https://www.bilibili.com/video/BV1wE411D7vd) `StrugglingPotato`
+- [cn2b2t新家园开辟成果](https://www.bilibili.com/video/BV1KE411R7Jf) `Jason_Stephen`
 
 ## 项目结构
 
