@@ -1,12 +1,14 @@
-# <img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" /> cn2b2t插件集合
+# cn2b2t插件集合
 
 [![ci](https://github.com/CarmJos/cn2b2t-parent/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/CarmJos/cn2b2t-parent/actions/workflows/maven.yml)
 
-有中国特色的仿2b2t类生存服务器基础插件代码集合。
+cn2b2t服务器基础插件代码集合。
+
 
 ## 相关介绍
+<img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" />
 
-本项目创建初衷为讽刺China2B2T的圈钱行为，后为向cn2b2t玩家提供良好的游玩环境而继续维护。
+本项目创建初衷为讽刺China2B2T的圈钱行为，后为向cn2b2t玩家提供良好的游玩环境，创造有中国特色的仿2b2t类生存服务器而继续维护。
 
 ## 项目变动
 
