@@ -21,6 +21,14 @@
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>2b2t-core</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!--        <dependency>-->
         <!--            <groupId>org.spigotmc</groupId>-->
         <!--            <artifactId>spigot</artifactId>-->
