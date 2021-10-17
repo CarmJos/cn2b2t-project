@@ -110,11 +110,11 @@
     <dependencyManagement>
 
         <dependencies>
-            <!--            <dependency>-->
-            <!--                <groupId>org.spigotmc</groupId>-->
-            <!--                <artifactId>spigot</artifactId>-->
-            <!--                <version>1.12-R0.1-SNAPSHOT</version>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>org.spigotmc</groupId>
+                <artifactId>spigot</artifactId>
+                <version>1.12-R0.1-SNAPSHOT</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.github.azbh111</groupId>
@@ -131,7 +131,7 @@
             <dependency>
                 <groupId>com.comphenix.protocol</groupId>
                 <artifactId>ProtocolLib</artifactId>
-                <version>4.5.0</version>
+                <version>4.7.0</version>
             </dependency>
 
             <dependency>

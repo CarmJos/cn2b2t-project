@@ -30,11 +30,11 @@
             <systemPath>${basedir}/../_lib/McPay-obf-2.0.0-alpha-b92.jar</systemPath>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.spigotmc</groupId>-->
-        <!--            <artifactId>spigot</artifactId>-->
-        <!--            <scope>provided</scope>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.github.azbh111</groupId>
