@@ -18,7 +18,7 @@
         <module>2b2t-logger</module>
     </modules>
 
-    <name>cn2b2t.org</name>
+    <name>cn2b2t-project</name>
     <description>cn2b2t相关代码，用于实现一些基础的功能。</description>
     <url>https://github.com/CarmJos/cn2b2t-paren</url>
 
