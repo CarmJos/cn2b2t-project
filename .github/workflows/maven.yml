@@ -24,15 +24,13 @@ jobs:
           distribution: 'adopt'
           cache: maven
           server-id: github
-          # Nexus用户名环境变量
           server-username: MAVEN_USERNAME
-          # Nexus密码环境变量
           server-password: MAVEN_TOKEN
-      - name: "Package & Deploy"
-        run: mvn -B deploy --file pom.xml
-        env:
-          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-          MAVEN_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#      - name: "Package & Deploy"
+#        run: mvn -B deploy --file pom.xml
+#        env:
+#          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+#          MAVEN_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: "Stage"
         run: mkdir staging && cp target/*.jar staging
       - name: "Upload artifact"
