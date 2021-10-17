@@ -7,7 +7,7 @@
 ![](https://visitor-badge.glitch.me/badge?page_id=cn2b2t-parent.readme)
 
 有中国特色的仿2b2t类生存服务器基础插件代码集合。
-~~~~
+
 <img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" />
 
 ## 相关介绍
