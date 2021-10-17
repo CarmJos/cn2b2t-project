@@ -1,8 +1,0 @@
-name: ImperialGuards
-main: cn.moci.ig.Main
-version: 1.0.0 - SNAPSHOT
-author: Moci
-depend: [ProtocolLib]
-commands:
-  ig:
-    aliases: [imperialguards]
