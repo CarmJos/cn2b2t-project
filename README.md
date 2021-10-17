@@ -82,7 +82,7 @@ public class LoggerAPITest {
 
 ### 2b2t-death
 
-修复(可能发送的)死亡复活点异常的问题。
+修复(可能发生的)死亡复活点异常的问题。
 
 ### 2b2t-spawn
 
