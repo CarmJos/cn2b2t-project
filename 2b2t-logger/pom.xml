@@ -34,11 +34,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--        <dependency>-->
+        <!--            <groupId>org.spigotmc</groupId>-->
+        <!--            <artifactId>spigot</artifactId>-->
+        <!--            <scope>provided</scope>-->
+        <!--        </dependency>-->
+
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
+            <groupId>com.github.azbh111</groupId>
+            <artifactId>craftbukkit-1.12.2</artifactId>
+            <version>R</version>
             <scope>provided</scope>
         </dependency>
+
 
     </dependencies>
 

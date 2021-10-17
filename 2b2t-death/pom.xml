@@ -41,12 +41,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--        <dependency>-->
+        <!--            <groupId>org.spigotmc</groupId>-->
+        <!--            <artifactId>spigot</artifactId>-->
+        <!--            <scope>provided</scope>-->
+        <!--        </dependency>-->
+
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>2b2t-logger</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.github.azbh111</groupId>
+            <artifactId>craftbukkit-1.12.2</artifactId>
+            <version>R</version>
             <scope>provided</scope>
         </dependency>
+
 
     </dependencies>
 
