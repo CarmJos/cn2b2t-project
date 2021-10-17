@@ -91,7 +91,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/CarmJos/2b2t-parent</url>
+            <url>https://maven.pkg.github.com/CarmJos/cn2b2t-parent</url>
         </repository>
     </distributionManagement>
 
