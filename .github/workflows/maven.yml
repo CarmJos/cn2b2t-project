@@ -24,7 +24,7 @@ jobs:
           cache: maven
           server-id: github
           server-username: MAVEN_USERNAME
-          server-password: GITHUB_TOKEN
+          server-password: MAVEN_TOKEN
       - name: "Package & Deploy"
         run: mvn -B deploy --file pom.xml
         env:
