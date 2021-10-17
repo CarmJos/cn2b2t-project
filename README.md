@@ -1,14 +1,8 @@
-# cn2b2t插件集合
+# <img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" /> cn2b2t插件集合
 
 [![ci](https://github.com/CarmJos/cn2b2t-parent/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/CarmJos/cn2b2t-parent/actions/workflows/maven.yml)
-![CodeSize](https://img.shields.io/github/languages/code-size/CarmJos/cn2b2t-parent)
-[![License](https://img.shields.io/github/license/CarmJos/cn2b2t-parent)](https://opensource.org/licenses/GPL-3.0)
-![Support](https://img.shields.io/badge/Minecraft-Java%201.12)
-![](https://visitor-badge.glitch.me/badge?page_id=cn2b2t-parent.readme)
 
 有中国特色的仿2b2t类生存服务器基础插件代码集合。
-
-<img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" />
 
 ## 相关介绍
 
