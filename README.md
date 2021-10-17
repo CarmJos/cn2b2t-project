@@ -1,5 +1,11 @@
 # cn2b2t插件集合
 
+[![ci](https://github.com/CarmJos/cn2b2t-parent/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/CarmJos/cn2b2t-parent/actions/workflows/maven.yml)
+![CodeSize](https://img.shields.io/github/languages/code-size/CarmJos/cn2b2t-parent)
+[![License](https://img.shields.io/github/license/CarmJos/cn2b2t-parent)](https://opensource.org/licenses/GPL-3.0)
+![Support](https://img.shields.io/badge/Minecraft-Java%201.12)
+![](https://visitor-badge.glitch.me/badge?page_id=cn2b2t-parent.readme)
+
 有中国特色的仿2b2t类生存服务器基础插件代码集合。
 
 ## 相关介绍
@@ -61,9 +67,6 @@
 提供cn2b2t中的出生点保护。
 
 ## 支持与捐赠
-
-本项目由 [YourCraft(你的世界)](https://www.ycraft.cn) 团队提供长期支持与维护。
-![TeamLogo](https://raw.githubusercontent.com/CarmJos/UserPrefix/master/img/team-logo.png)
 
 若您觉得本插件做的不错，您可以捐赠支持我！
 
