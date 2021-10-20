@@ -52,7 +52,7 @@ public class AutoPagedGUI extends CommonPagedGUI {
     public void openGUI(User user) {
         if (lastPageSlot >= 0)
             if (hasLastPage()) {
-                setItem(lastPageSlot, new GUIItem(lastPageUI == null ? new ItemStackFactory(Material.FENCE)
+                setItem(lastPageSlot, new GUIItem(lastPageUI == null ? new ItemStackFactory(Material.ARROW)
                         .setDisplayName("上一页")
                         .toItemStack() : lastPageUI) {
                     @Override
@@ -63,14 +63,14 @@ public class AutoPagedGUI extends CommonPagedGUI {
                     }
                 });
             } else {
-                setItem(lastPageSlot, new GUIItem(firstPageUI == null ? new ItemStackFactory(Material.FENCE)
+                setItem(lastPageSlot, new GUIItem(firstPageUI == null ? new ItemStackFactory(Material.ARROW)
                         .setDisplayName("已经是首页了")
                         .toItemStack() : firstPageUI));
             }
 
         if (lastPageSlot >= 0)
             if (hasNextPage()) {
-                setItem(nextPageSlot, new GUIItem(nextPageUI == null ? new ItemStackFactory(Material.COBBLE_WALL)
+                setItem(nextPageSlot, new GUIItem(nextPageUI == null ? new ItemStackFactory(Material.ARROW)
                         .setDisplayName("下一页")
                         .toItemStack() : nextPageUI) {
                     @Override
@@ -81,7 +81,7 @@ public class AutoPagedGUI extends CommonPagedGUI {
                     }
                 });
             } else {
-                setItem(nextPageSlot, new GUIItem(endPageUI == null ? new ItemStackFactory(Material.COBBLE_WALL)
+                setItem(nextPageSlot, new GUIItem(endPageUI == null ? new ItemStackFactory(Material.ARROW)
                         .setDisplayName("已经是尾页了")
                         .toItemStack() : endPageUI));
             }
