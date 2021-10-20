@@ -70,10 +70,10 @@
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
 
-        <repository>
-            <id>lss233-repo</id>
-            <url>https://lss233.littleservice.cn/repositories/minecraft</url>
-        </repository>
+<!--        <repository>-->
+<!--            <id>lss233-repo</id>-->
+<!--            <url>https://lss233.littleservice.cn/repositories/minecraft</url>-->
+<!--        </repository>-->
 
         <repository>
             <id>oss-repo</id>
@@ -110,10 +110,11 @@
     <dependencyManagement>
 
         <dependencies>
+
             <dependency>
                 <groupId>org.spigotmc</groupId>
-                <artifactId>spigot</artifactId>
-                <version>1.12-R0.1-SNAPSHOT</version>
+                <artifactId>spigot-api</artifactId>
+                <version>1.17-R0.1-SNAPSHOT</version>
             </dependency>
 
             <dependency>

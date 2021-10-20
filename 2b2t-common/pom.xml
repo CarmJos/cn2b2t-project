@@ -31,10 +31,10 @@
 
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
+            <artifactId>spigot-api</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        
         <dependency>
             <groupId>com.github.azbh111</groupId>
             <artifactId>craftbukkit-1.12.2</artifactId>
