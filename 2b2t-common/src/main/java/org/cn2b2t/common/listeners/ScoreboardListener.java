@@ -1,5 +1,6 @@
 package org.cn2b2t.common.listeners;
 
+import net.minecraft.server.v1_12_R1.MinecraftServer;
 import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
@@ -105,7 +106,7 @@ public class ScoreboardListener implements Listener {
                 sm.setLine(7, "§8 ");
                 sm.setLine(8, "§7本服信息");
                 sm.setLine(9, " 本服在线 §6" + Bukkit.getOnlinePlayers().size());
-                sm.setLine(10, " 当前TPS §6" + (int) (Bukkit.getServer().getTPS()[0] * 100000.0) / 100000.0);
+//                sm.setLine(10, " 当前TPS §6" + (int) (Bukkit.getServer().getTPS()[0] * 100000.0) / 100000.0);
                 sm.setLine(11, " 下次重启 §6" + RestartRunnable.getTimeString());
                 sm.setLine(12, "§9");
                 sm.setLine(13, "§6cn2b2t.org");
@@ -146,10 +147,10 @@ public class ScoreboardListener implements Listener {
                 sm.setLine(9, " 本服在线 §6" + Bukkit.getOnlinePlayers().size());
                 break;
             }
-            case 10: {
-                sm.setLine(10, " 当前TPS §6" + (int) (Bukkit.getServer().getTPS()[0] * 100000.0) / 100000.0);
-                break;
-            }
+//            case 10: {
+//                sm.setLine(10, " 当前TPS §6" + (int) (Bukkit.getServer().getTPS()[0] * 100000.0) / 100000.0);
+//                break;
+//            }
             case 11: {
                 sm.setLine(11, " 下次重启 §6" + RestartRunnable.getTimeString());
                 break;
