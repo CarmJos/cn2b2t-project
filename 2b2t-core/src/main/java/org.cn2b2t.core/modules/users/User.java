@@ -13,7 +13,6 @@ import org.cn2b2t.core.managers.utils.scoreboard.CeramicScoreboard;
 import org.cn2b2t.core.managers.utils.scoreboard.ScoreBoardRender;
 import org.cn2b2t.core.modules.gui.GUI;
 import org.cn2b2t.core.utils.UUIDUtils;
-import org.spigotmc.AsyncCatcher;
 
 import java.io.File;
 import java.io.IOException;
@@ -142,9 +141,6 @@ public class User {
     }
 
     public <T extends AbstractUserHandler> T getHandler(Class<T> c) {
-        if (isUnregistered()) {
-            AsyncCatcher.catchOp("handler get when user unloaded");
-        }
         int position = c.getName().lastIndexOf('.');
         String name = c.getName().substring(position + 1);
         if (containsHandler(name)) {
@@ -155,9 +151,6 @@ public class User {
     }
 
     public Object getHandler(String s) {
-        if (isUnregistered()) {
-            AsyncCatcher.catchOp("handler get when user unloaded");
-        }
         if (containsHandler(s)) {
             return handler.get(s);
         } else {
@@ -170,9 +163,6 @@ public class User {
     }
 
     public <T> T getHandler(String s, Class T) {
-        if (isUnregistered()) {
-            AsyncCatcher.catchOp("handler get when user unloaded");
-        }
         if (containsHandler(s)) {
             return (T) handler.get(s);
         } else {

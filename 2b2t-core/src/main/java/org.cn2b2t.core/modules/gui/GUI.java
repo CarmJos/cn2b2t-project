@@ -107,7 +107,7 @@ public class GUI {
 
 	public final void setItem(int index, GUIItem item) {
 		if (item == null) {
-			this.items[index] = new GUIItem(new ItemStack(0));
+			this.items[index] = new GUIItem(new ItemStack(Material.AIR));
 		} else {
 			this.items[index] = item;
 		}
