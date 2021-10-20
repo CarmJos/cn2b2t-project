@@ -25,7 +25,7 @@
             <artifactId>Cord</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../_lib/Cord.jar</systemPath>
+            <systemPath>${basedir}/../.lib/Cord.jar</systemPath>
         </dependency>
     </dependencies>
 

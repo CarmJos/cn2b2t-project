@@ -6,7 +6,7 @@ cn2b2t服务器基础插件代码集合。
 
 ## 相关介绍
 
-<img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/_img/2b2t.png" />
+<img src="https://github.com/CarmJos/cn2b2t-parent/blob/master/.img/2b2t.png" />
 
 本项目为讽刺China2B2T的圈钱行为而创立；后为向cn2b2t玩家提供良好的游玩环境，创造有中国特色的仿2b2t类生存服务器而继续维护。
 
