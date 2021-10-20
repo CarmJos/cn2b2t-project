@@ -63,9 +63,7 @@ public class AutoPagedGUI extends CommonPagedGUI {
                     }
                 });
             } else {
-                setItem(lastPageSlot, new GUIItem(firstPageUI == null ? new ItemStackFactory(Material.ARROW)
-                        .setDisplayName("已经是首页了")
-                        .toItemStack() : firstPageUI));
+                setItem(lastPageSlot, new GUIItem(firstPageUI == null ? null : firstPageUI));
             }
 
         if (lastPageSlot >= 0)
@@ -81,9 +79,7 @@ public class AutoPagedGUI extends CommonPagedGUI {
                     }
                 });
             } else {
-                setItem(nextPageSlot, new GUIItem(endPageUI == null ? new ItemStackFactory(Material.ARROW)
-                        .setDisplayName("已经是尾页了")
-                        .toItemStack() : endPageUI));
+                setItem(nextPageSlot, new GUIItem(endPageUI == null ? null : endPageUI));
             }
 
         super.openGUI(user);
